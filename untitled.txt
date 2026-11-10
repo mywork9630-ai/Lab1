@@ -1,0 +1,45 @@
+
+users = {
+    "volodya": {
+        "password": "12345",
+        "grades": [12, 10, 8, 4, 9, 3, 11]
+    },
+    "andriy": {
+        "password": "1111",
+        "grades": [7, 6, 5, 3, 2, 10]
+    },
+    "maksym": {
+        "password": "2222",
+        "grades": [12, 11, 9, 8, 4, 1]
+    },
+    "dmytro": {
+        "password": "3333",
+        "grades": [5, 6, 7, 2, 3, 12]
+    }
+}
+
+login = input("Введіть логін: ")
+password = input("Введіть пароль: ")
+
+if login in users and users[login]["password"] == password:
+    print("\nВхід успішний!")
+    
+    grades = users[login]["grades"]
+    
+    print("Ваші оцінки:", grades)
+    
+    good_grades = 0
+    bad_grades = 0
+    
+    for grade in grades:
+        if grade >= 5 and grade <= 12:
+            good_grades += 1
+        elif grade >= 1 and grade <= 4:
+            bad_grades += 1
+    
+    print("Задовільних оцінок:", good_grades)
+    print("Незадовільних оцінок:", bad_grades)
+
+else:
+    print("\nПомилка! Неправильний логін або пароль.")
+    
